@@ -62,46 +62,36 @@ public class Solution {
 //		System.out.println(pq.poll());
 //	}
 	
-	public int findComplement(int num) {
-	
-		String s = Integer.toBinaryString(num);
-		System.out.println(s);
-		int result =0;
-		for(int i =0;i<s.length();i++) {
-			if(s.charAt(i) == '0') {
-				result = result +(int) Math.pow(2, i); 
-			}
-		}
-		return result;
-		
-    }
-        
 
+	
 	public static void main(String[] args) {
-		int result =0;
-		String s1 = "paless";
-		String s2 = "pales";
-		int[] arr1 = new int[26];
-		int[] arr2 = new int[26];
-		for(char ch : s1.toCharArray()) {
-			arr1[ch -'a']++;
-		}
-		for(char ch : s2.toCharArray()) {
-			arr1[ch - 'a']--;
+		int[] arr = {-10, -5, 0, 3, 7};
+		int l =0;
+		int r = arr.length-1;
+		
+		while(l<r){
+			
+			int mid =(l+r)/2;
+			
+			if(arr[mid] == mid) {
+				System.out.println("mid "+ mid);
+				break;
+			}
+			else if(arr[mid] > mid) {
+				r = mid-1;
+			}
+			else {
+				l =mid+1;
+			}
+			
 		}
 		
-		for(int i =0;i<26;i++) {
-			result +=Math.abs(arr1[i]);
-		}
-		
-		if(result<=2) {
-			System.out.println("true");
-		}
-		else {
-			System.out.println("false");
-		}
-		
+		System.out.println("not found");
 	}
+	
+	
+	
+	
 }	
 	
 
